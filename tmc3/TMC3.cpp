@@ -118,7 +118,8 @@ struct Parameters {
 
 //----------------------------------------------------------------------------
 
-class SequenceCodec {
+class SequenceCodec 
+{
 public:
   // NB: params must outlive the lifetime of the decoder.
   SequenceCodec(Parameters* params) : params(params) {}
@@ -149,9 +150,8 @@ protected:
 
 //----------------------------------------------------------------------------
 
-class SequenceEncoder
-  : public SequenceCodec
-  , PCCTMC3Encoder3::Callbacks {
+class SequenceEncoder: public SequenceCodec, PCCTMC3Encoder3::Callbacks 
+{
 public:
   // NB: params must outlive the lifetime of the decoder.
   SequenceEncoder(Parameters* params);
@@ -187,9 +187,8 @@ private:
 
 //----------------------------------------------------------------------------
 
-class SequenceDecoder
-  : public SequenceCodec
-  , PCCTMC3Decoder3::Callbacks {
+class SequenceDecoder: public SequenceCodec, PCCTMC3Decoder3::Callbacks 
+{
 public:
   // NB: params must outlive the lifetime of the decoder.
   SequenceDecoder(Parameters* params);
@@ -209,11 +208,9 @@ private:
 
 //============================================================================
 
-void convertToGbr(
-  const std::vector<AttributeDescription>& attrDescs, PCCPointSet3& cloud);
+void convertToGbr(const std::vector<AttributeDescription>& attrDescs, PCCPointSet3& cloud);
 
-void convertFromGbr(
-  const std::vector<AttributeDescription>& attrDescs, PCCPointSet3& cloud);
+void convertFromGbr(const std::vector<AttributeDescription>& attrDescs, PCCPointSet3& cloud);
 
 //============================================================================
 
@@ -2152,41 +2149,44 @@ SequenceEncoder::SequenceEncoder(Parameters* params) : SequenceCodec(params)
 int
 SequenceEncoder::compress(Stopwatch* clock)
 {
-  bytestreamFile.open(params->compressedStreamPath, ios::binary);
-  if (!bytestreamFile.is_open()) {
-    return -1;
-  }
-  this->encoder.setMotionVectorFileName(params->motionVectorPath);
-  const int lastFrameNum = params->firstFrameNum + params->frameCount;
-  if (!params->encoder.gps.biPredictionEnabledFlag) {
-    for (frameNum = params->firstFrameNum; frameNum < lastFrameNum;
-         frameNum++) {
-      this->encoder.setInterForCurrPic(
-        params->encoder.gps.interPredictionEnabledFlag
-        && ((frameNum - params->firstFrameNum) % params->encoder.randomAccessPeriod));
-      if (compressOneFrame(clock))
+    bytestreamFile.open(params->compressedStreamPath, ios::binary);
+    if (!bytestreamFile.is_open()) {
         return -1;
     }
-  } else {
-    preIPFrame = -1;
-    currentFrame = -1;
-    codedGOF = false;
-    for (frameNum = params->firstFrameNum; frameNum < lastFrameNum;
-         frameNum += params->encoder.randomAccessPeriod) {
-      gofSizePlusOne =
-        ((frameNum + params->encoder.randomAccessPeriod) >= lastFrameNum)
-        ? (lastFrameNum - frameNum)
-        : (params->encoder.randomAccessPeriod + 1);
-      if (compressOneGOF(clock)) {
-        return -1;
-      }
+
+    this->encoder.setMotionVectorFileName(params->motionVectorPath);
+    const int lastFrameNum = params->firstFrameNum + params->frameCount;
+
+    if (!params->encoder.gps.biPredictionEnabledFlag) 
+    {
+        for (frameNum = params->firstFrameNum; frameNum < lastFrameNum; frameNum++) 
+        {
+            this->encoder.setInterForCurrPic(params->encoder.gps.interPredictionEnabledFlag && ((frameNum - params->firstFrameNum) % params->encoder.randomAccessPeriod));
+            
+            if (compressOneFrame(clock))
+                return -1;
+        }
     }
-  }
+    else 
+    {
+        preIPFrame = -1;
+        currentFrame = -1;
+        codedGOF = false;
+        for (frameNum = params->firstFrameNum; frameNum < lastFrameNum; frameNum += params->encoder.randomAccessPeriod) 
+        {
+            gofSizePlusOne = ((frameNum + params->encoder.randomAccessPeriod) >= lastFrameNum)
+            ? (lastFrameNum - frameNum): (params->encoder.randomAccessPeriod + 1);
+            
+            if (compressOneGOF(clock)) {
+                return -1;
+            }
+        }
+    }
 
-  std::cout << "Total bitstream size " << bytestreamFile.tellp() << " B\n";
-  bytestreamFile.close();
+    std::cout << "Total bitstream size " << bytestreamFile.tellp() << " B\n";
+    bytestreamFile.close();
 
-  return 0;
+    return 0;
 }
 
 //----------------------------------------------------------------------------

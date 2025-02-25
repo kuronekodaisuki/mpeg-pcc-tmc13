@@ -61,7 +61,8 @@ typedef Vec3<int32_t> point_t;
 
 //============================================================================
 
-class PCCPointSet3 {
+class PCCPointSet3 
+{
 public:
   typedef point_t PointType;
 
@@ -411,6 +412,7 @@ public:
   }
 
   size_t getPointCount() const { return positions.size(); }
+
   void resize(const size_t size)
   {
     positions.resize(size);
@@ -455,17 +457,18 @@ public:
 
   size_t removeDuplicatePointInQuantizedPoint(int minGeomNodeSizeLog2)
   {
-    for (int i = 0; i < positions.size(); i++) {
+    for (int i = 0; i < positions.size(); i++) 
+    {
       PointType newPoint = positions[i];
-      if (minGeomNodeSizeLog2 > 0) {
+      if (minGeomNodeSizeLog2 > 0) 
+      {
         uint32_t mask = ((uint32_t)-1) << minGeomNodeSizeLog2;
         positions[i].x() = ((int32_t)(positions[i].x()) & mask);
         positions[i].y() = ((int32_t)(positions[i].y()) & mask);
         positions[i].z() = ((int32_t)(positions[i].z()) & mask);
       }
     }
-    positions.erase(
-      std::unique(positions.begin(), positions.end()), positions.end());
+    positions.erase(std::unique(positions.begin(), positions.end()), positions.end());
 
     return positions.size();
   }
@@ -497,6 +500,23 @@ public:
       std::copy(
         src.laserAngles.begin(), src.laserAngles.end(),
         std::next(laserAngles.begin(), dstEnd));
+  }
+
+  /// <summary>
+  /// Add a set of points to the end of the point cloud.
+  /// </summary>
+  /// <param name="positions">point cloud captured by iPhone LiDAR</param>
+  void Append(std::vector<PointType> positions)
+  {
+    if (!getPointCount())
+      resize(positions.size());
+
+    int dstEnd = this->positions.size();
+    int srcSize = positions.size();
+    resize(dstEnd + srcSize);
+    std::copy(
+      positions.begin(), positions.end(),
+      std::next(this->positions.begin(), dstEnd));
   }
 
   void swapPoints(const size_t index1, const size_t index2)
