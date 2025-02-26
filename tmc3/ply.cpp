@@ -33,14 +33,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "ply.h"
-
-#include "PCCMisc.h"
-#include "PCCPointSet.h"
-
 #include <fstream>
 #include <string>
 #include <vector>
+
+#include "ply.h"
+
 
 namespace pcc {
 
@@ -392,9 +390,11 @@ ply::read(
     cloud.removeLaserAngles();
 
   cloud.resize(pointCount);
-  if (isAscii) {
+  if (isAscii) 
+  {
     size_t pointCounter = 0;
-    while (!ifs.eof() && pointCounter < pointCount) {
+    while (!ifs.eof() && pointCounter < pointCount) 
+    {
       ifs.getline(tmp, MAX_BUFFER_SIZE);
       getTokens(tmp, sep, tokens);
       if (tokens.empty()) {
@@ -427,7 +427,9 @@ ply::read(
       }
       ++pointCounter;
     }
-  } else {
+  } 
+  else 
+  {
     for (size_t pointCounter = 0; pointCounter < pointCount && !ifs.eof();
          ++pointCounter) {
       auto& position = cloud[pointCounter];
