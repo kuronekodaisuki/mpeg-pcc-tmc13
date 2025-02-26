@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
+project(iOS)
+
 enable_language(C)
 
 if (UNIX)
@@ -38,8 +40,8 @@ add_custom_command(
 )
 
 configure_file (
-  "${CMAKE_CURRENT_SOURCE_DIR}/TMC3Config.h.in"
-  "${PROJECT_BINARY_DIR}/tmc3/TMC3Config.h"
+#  "${CMAKE_CURRENT_SOURCE_DIR}/TMC3Config.h.in"
+#  "${PROJECT_BINARY_DIR}/tmc3/TMC3Config.h"
 )
 
 #
@@ -53,8 +55,8 @@ configure_file (
 #
 
 file(GLOB PROJECT_IN_FILES
-  "TMC3Config.h.in"
-  "version.cpp.in"
+#  "TMC3Config.h.in"
+#  "version.cpp.in"
 )
 
 file(GLOB PROJECT_INC_FILES
@@ -163,21 +165,21 @@ include_directories(
  # "${CMAKE_CURRENT_SOURCE_DIR}/../dependencies/program-options-lite"
 )
 
-add_executable (tmc3
+add_library (iOS STATIC
   ${PROJECT_CPP_FILES}
   ${PROJECT_INC_FILES}
   ${PROJECT_IN_FILES}
   ${VERSION_FILE}
 )
-add_dependencies(tmc3 genversion)
+add_dependencies(iOS genversion)
 
-add_executable (ply-merge EXCLUDE_FROM_ALL
- # "../tools/ply-merge.cpp"
- # "misc.cpp"
-  "ply.cpp"
- # "../dependencies/program-options-lite/program_options_lite.cpp"
-  ${VERSION_FILE}
-)
-add_dependencies(ply-merge genversion)
+#add_executable (ply-merge EXCLUDE_FROM_ALL
+# # "../tools/ply-merge.cpp"
+# # "misc.cpp"
+#  "ply.cpp"
+# # "../dependencies/program-options-lite/program_options_lite.cpp"
+#  ${VERSION_FILE}
+#)
+#add_dependencies(ply-merge genversion)
 
-install (TARGETS tmc3 DESTINATION bin)
+#install (TARGETS tmc3 DESTINATION bin)
