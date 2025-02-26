@@ -36,6 +36,7 @@
 #ifndef PCCMath_h
 #define PCCMath_h
 
+#include <algorithm>
 #include <assert.h>
 #include <cstddef>
 #include <iostream>
@@ -47,7 +48,7 @@
 #include "PCCMisc.h"
 #include "tables.h"
 
-#include <algorithm>
+
 
 namespace pcc {
 /// Vector dim 3
