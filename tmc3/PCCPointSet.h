@@ -478,8 +478,8 @@ public:
     if (!getPointCount())
       addRemoveAttributes(src);
 
-    int dstEnd = positions.size();
-    int srcSize = src.positions.size();
+    size_t dstEnd = positions.size();
+    size_t srcSize = src.positions.size();
     resize(dstEnd + srcSize);
 
     std::copy(
@@ -511,8 +511,8 @@ public:
     if (!getPointCount())
       resize(positions.size());
 
-    int dstEnd = this->positions.size();
-    int srcSize = positions.size();
+    size_t dstEnd = this->positions.size();
+    size_t srcSize = positions.size();
     resize(dstEnd + srcSize);
     std::copy(
       positions.begin(), positions.end(),
@@ -623,7 +623,7 @@ swap(PCCPointSet3& a, PCCPointSet3& b)
 
 //============================================================================
 
-static inline int findLaserPrecise(
+static inline int64_t findLaserPrecise(
   pcc::point_t point,
   const int* thetaList,
   const int* zList,
@@ -636,14 +636,14 @@ static inline int findLaserPrecise(
   int64_t yLidar = int64_t(point[1]) << 8;
   int64_t rInv = irsqrt(xLidar * xLidar + yLidar * yLidar);
 
-  int lBest = 0;
-  int dBest = std::numeric_limits<int>::max();
+  int64_t lBest = 0;
+  int64_t dBest = std::numeric_limits<int>::max();
 
   for (int l = 0; l < numTheta; l++, thetaList++) {
     int zS3 = (point[2] << 3) + zList[l];
-    int theta32 =
+    int64_t theta32 =
       zS3 >= 0 ? (zS3 * rInv) >> (14 + 3) : -((-zS3 * rInv) >> (14 + 3));
-    int d = std::abs(theta32 - *thetaList);
+    int64_t d = std::abs(theta32 - *thetaList);
     if (d < dBest) {
       dBest = d;
       lBest = l;
