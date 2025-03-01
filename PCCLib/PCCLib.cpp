@@ -31,3 +31,21 @@ PlyRead(std::string& filepath)
 }
 
 }  // namespace pcc
+
+int
+main(int argc, char* argv[])
+{
+    if (2 <= argc)
+    {
+        pcc::PCCPointSet3 pointCloud;
+        pcc::ply::PropertyNameMap propertyNames;
+
+        propertyNames.position = axisOrderToPropertyNames(1);
+
+        if (pcc::ply::read(argv[1], propertyNames, 1, pointCloud))
+        {
+          puts(argv[1]);
+        } else
+          puts("Failed");
+    }
+}
