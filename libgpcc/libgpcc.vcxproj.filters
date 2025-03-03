@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\tmc3\AttributeCommon.cpp" />
+    <ClCompile Include="..\tmc3\AttributeDecoder.cpp" />
+    <ClCompile Include="..\tmc3\AttributeEncoder.cpp" />
+    <ClCompile Include="..\tmc3\attribute_raw_decoder.cpp" />
+    <ClCompile Include="..\tmc3\attribute_raw_encoder.cpp" />
+    <ClCompile Include="..\tmc3\coordinate_conversion.cpp" />
+    <ClCompile Include="..\tmc3\decoder.cpp" />
+    <ClCompile Include="..\tmc3\DualLutCoder.cpp" />
+    <ClCompile Include="..\tmc3\encoder.cpp" />
+    <ClCompile Include="..\tmc3\entropydirac.cpp" />
+    <ClCompile Include="..\tmc3\FixedPoint.cpp" />
+    <ClCompile Include="..\tmc3\frame.cpp" />
+    <ClCompile Include="..\tmc3\geometry_intra_pred.cpp" />
+    <ClCompile Include="..\tmc3\geometry_octree.cpp" />
+    <ClCompile Include="..\tmc3\geometry_octree_decoder.cpp" />
+    <ClCompile Include="..\tmc3\geometry_octree_encoder.cpp" />
+    <ClCompile Include="..\tmc3\geometry_predictive_decoder.cpp" />
+    <ClCompile Include="..\tmc3\geometry_predictive_encoder.cpp" />
+    <ClCompile Include="..\tmc3\geometry_trisoup_decoder.cpp" />
+    <ClCompile Include="..\tmc3\geometry_trisoup_encoder.cpp" />
+    <ClCompile Include="..\tmc3\io_hls.cpp" />
+    <ClCompile Include="..\tmc3\io_tlv.cpp" />
+    <ClCompile Include="..\tmc3\misc.cpp" />
+    <ClCompile Include="..\tmc3\motionWip.cpp" />
+    <ClCompile Include="..\tmc3\OctreeNeighMap.cpp" />
+    <ClCompile Include="..\tmc3\osspecific.cpp" />
+    <ClCompile Include="..\tmc3\partitioning.cpp" />
+    <ClCompile Include="..\tmc3\pcc_chrono.cpp" />
+    <ClCompile Include="..\tmc3\ply.cpp" />
+    <ClCompile Include="..\tmc3\pointset_processing.cpp" />
+    <ClCompile Include="..\tmc3\quantization.cpp" />
+    <ClCompile Include="..\tmc3\RAHT.cpp" />
+    <ClCompile Include="..\tmc3\tables.cpp" />
+    <ClCompile Include="..\tmc3\TMC3.cpp" />
+    <ClCompile Include="libtmc3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\tmc3\Attribute.h" />
+    <ClInclude Include="..\tmc3\AttributeCommon.h" />
+    <ClInclude Include="..\tmc3\AttributeDecoder.h" />
+    <ClInclude Include="..\tmc3\AttributeEncoder.h" />
+    <ClInclude Include="..\tmc3\attribute_raw.h" />
+    <ClInclude Include="..\tmc3\BitReader.h" />
+    <ClInclude Include="..\tmc3\BitWriter.h" />
+    <ClInclude Include="..\tmc3\colourspace.h" />
+    <ClInclude Include="..\tmc3\constants.h" />
+    <ClInclude Include="..\tmc3\coordinate_conversion.h" />
+    <ClInclude Include="..\tmc3\DualLutCoder.h" />
+    <ClInclude Include="..\tmc3\entropy.h" />
+    <ClInclude Include="..\tmc3\entropychunk.h" />
+    <ClInclude Include="..\tmc3\entropydirac.h" />
+    <ClInclude Include="..\tmc3\entropyutils.h" />
+    <ClInclude Include="..\tmc3\FixedPoint.h" />
+    <ClInclude Include="..\tmc3\frame.h" />
+    <ClInclude Include="..\tmc3\framectr.h" />
+    <ClInclude Include="..\tmc3\geometry.h" />
+    <ClInclude Include="..\tmc3\geometry_intra_pred.h" />
+    <ClInclude Include="..\tmc3\geometry_octree.h" />
+    <ClInclude Include="..\tmc3\geometry_params.h" />
+    <ClInclude Include="..\tmc3\geometry_predictive.h" />
+    <ClInclude Include="..\tmc3\geometry_trisoup.h" />
+    <ClInclude Include="..\tmc3\hls.h" />
+    <ClInclude Include="..\tmc3\io_hls.h" />
+    <ClInclude Include="..\tmc3\io_tlv.h" />
+    <ClInclude Include="..\tmc3\motionWip.h" />
+    <ClInclude Include="..\tmc3\OctreeNeighMap.h" />
+    <ClInclude Include="..\tmc3\osspecific.h" />
+    <ClInclude Include="..\tmc3\partitioning.h" />
+    <ClInclude Include="..\tmc3\PayloadBuffer.h" />
+    <ClInclude Include="..\tmc3\PCCMath.h" />
+    <ClInclude Include="..\tmc3\PCCMisc.h" />
+    <ClInclude Include="..\tmc3\PCCPointSet.h" />
+    <ClInclude Include="..\tmc3\PCCTMC3Common.h" />
+    <ClInclude Include="..\tmc3\PCCTMC3Decoder.h" />
+    <ClInclude Include="..\tmc3\PCCTMC3Encoder.h" />
+    <ClInclude Include="..\tmc3\pcc_chrono.h" />
+    <ClInclude Include="..\tmc3\ply.h" />
+    <ClInclude Include="..\tmc3\pointset_processing.h" />
+    <ClInclude Include="..\tmc3\quantization.h" />
+    <ClInclude Include="..\tmc3\RAHT.h" />
+    <ClInclude Include="..\tmc3\ringbuf.h" />
+    <ClInclude Include="..\tmc3\tables.h" />
+    <ClInclude Include="..\tmc3\TMC3.h" />
+    <ClInclude Include="..\tmc3\version.h" />
+    <ClInclude Include="framework.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\tmc3\CMakeLists.txt" />
+  </ItemGroup>
+</Project>

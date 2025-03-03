@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{ec95c400-ee1d-417f-baf1-3166aa727fde}</ProjectGuid>
-    <RootNamespace>libtmc3</RootNamespace>
+    <RootNamespace>libgpcc</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>libgpcc</ProjectName>
   </PropertyGroup>
@@ -190,7 +190,6 @@
     <ClInclude Include="..\tmc3\TMC3.h" />
     <ClInclude Include="..\tmc3\version.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\tmc3\AttributeCommon.cpp" />
@@ -228,12 +227,6 @@
     <ClCompile Include="..\tmc3\tables.cpp" />
     <ClCompile Include="..\tmc3\TMC3.cpp" />
     <ClCompile Include="libtmc3.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\tmc3\CMakeLists.txt" />
