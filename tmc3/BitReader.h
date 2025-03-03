@@ -196,7 +196,7 @@ BitReader<ForwardIt>::readSe()
   uint64_t value = readUe();
   bool sign = value & 1;
   value = (value + sign) >> 1;
-  return sign ? value : -value;
+  return sign ? value : -(int64_t)value;
 }
 
 //----------------------------------------------------------------------------
