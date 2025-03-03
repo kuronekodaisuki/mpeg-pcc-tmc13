@@ -73,6 +73,8 @@ find_package(Git)
 #)
 
 file(GLOB PROJECT_INC_FILES
+  "SequqenceCoder.h"
+  "SequenceEncoder.h"
   "../tmc3/Attribute.h"
   "../tmc3/AttributeCommon.h"
   "../tmc3/AttributeDecoder.h"
@@ -128,6 +130,8 @@ file(GLOB PROJECT_INC_FILES
 )
 
 file(GLOB PROJECT_CPP_FILES
+  "SequenceCodec.cpp"
+  "SequenceEncoder.cpp"
   "../tmc3/AttributeCommon.cpp"
   "../tmc3/AttributeDecoder.cpp"
   "../tmc3/AttributeEncoder.cpp"
@@ -135,7 +139,6 @@ file(GLOB PROJECT_CPP_FILES
   "../tmc3/FixedPoint.cpp"
   "../tmc3/OctreeNeighMap.cpp"
   "../tmc3/RAHT.cpp"
-  "../tmc3/TMC3.cpp"
   "../tmc3/attribute_raw_decoder.cpp"
   "../tmc3/attribute_raw_encoder.cpp"
   "../tmc3/coordinate_conversion.cpp"
@@ -171,7 +174,7 @@ source_group (input FILES ${PROJECT_IN_FILES})
 source_group (cpp FILES ${PROJECT_CPP_FILES})
 
 include_directories(
-  "${PROJECT_BINARY_DIR}/tmc3"
+  "${PROJECT_BINARY_DIR}../tmc3"
   "${PROJECT_SOURCE_DIR}"
   "${CMAKE_CURRENT_SOURCE_DIR}"
   "${CMAKE_CURRENT_SOURCE_DIR}/../dependencies/nanoflann"
