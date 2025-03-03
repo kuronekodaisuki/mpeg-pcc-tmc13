@@ -102,6 +102,7 @@
       <Filter>cpp</Filter>
     </ClCompile>
     <ClCompile Include="SequenceCodec.cpp" />
+    <ClCompile Include="SequenceEncoder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libgpcc.h" />
@@ -247,6 +248,7 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="SequenceCodec.h" />
+    <ClInclude Include="SequenceEncoder.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\tmc3\CMakeLists.txt" />

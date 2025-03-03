@@ -12,7 +12,10 @@ enum class OutputSystem
   kExternal = 1,
 };
 
-//----------------------------------------------------------------------------
+std::array<const char*, 3> axisOrderToPropertyNames(pcc::AxisOrder order);
+void convertFromGbr(
+  const std::vector<pcc::AttributeDescription>& attrDescs, pcc::PCCPointSet3& cloud);
+  //----------------------------------------------------------------------------
 
 struct Parameters {
   bool isDecoder;

@@ -191,6 +191,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="libgpcc.h" />
     <ClInclude Include="SequenceCodec.h" />
+    <ClInclude Include="SequenceEncoder.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\tmc3\AttributeCommon.cpp" />
@@ -228,6 +229,7 @@
     <ClCompile Include="..\tmc3\tables.cpp" />
     <ClCompile Include="libgpcc.cpp" />
     <ClCompile Include="SequenceCodec.cpp" />
+    <ClCompile Include="SequenceEncoder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\tmc3\CMakeLists.txt" />
