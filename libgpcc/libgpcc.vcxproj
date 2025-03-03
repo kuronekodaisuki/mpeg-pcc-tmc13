@@ -187,10 +187,10 @@
     <ClInclude Include="..\tmc3\RAHT.h" />
     <ClInclude Include="..\tmc3\ringbuf.h" />
     <ClInclude Include="..\tmc3\tables.h" />
-    <ClInclude Include="..\tmc3\TMC3.h" />
     <ClInclude Include="..\tmc3\version.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="libgpcc.h" />
+    <ClInclude Include="SequenceCodec.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\tmc3\AttributeCommon.cpp" />
@@ -226,8 +226,8 @@
     <ClCompile Include="..\tmc3\quantization.cpp" />
     <ClCompile Include="..\tmc3\RAHT.cpp" />
     <ClCompile Include="..\tmc3\tables.cpp" />
-    <ClCompile Include="..\tmc3\TMC3.cpp" />
     <ClCompile Include="libgpcc.cpp" />
+    <ClCompile Include="SequenceCodec.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\tmc3\CMakeLists.txt" />
