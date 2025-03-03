@@ -1,5 +1,19 @@
 cmake_minimum_required(VERSION 3.10)
+project(gpcc)
+
 enable_language(C)
+
+include( CheckCXXCompilerFlag )
+CHECK_CXX_COMPILER_FLAG( "-std=c++11" COMPILER_SUPPORTS_CXX11 )
+CHECK_CXX_COMPILER_FLAG( "-std=c++0x" COMPILER_SUPPORTS_CXX0X )
+
+if (COMPILER_SUPPORTS_CXX11)
+ set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11" )
+elseif (COMPILER_SUPPORTS_CXX0X)
+ set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x" )
+else ()
+ MESSAGE(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+endif ()
 
 if (UNIX)
   add_definitions(-D_POSIX_C_SOURCE=200809L)
@@ -29,17 +43,17 @@ find_package(Git)
 #                           -D VERSION_EXTRA=${VERSION_EXTRA}
 #                           -D VERSION_CACHE_FILE=${VERSION_CACHE_FILE}
 #                           -D GIT_EXECUTABLE=${GIT_EXECUTABLE}
-#                           -P ${CMAKE_SOURCE_DIR}/scripts/genversion.cmake
+#                           -P ../scripts/genversion.cmake
 #  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 #)
 
-add_custom_command(
-  OUTPUT ${VERSION_FILE}
-  DEPENDS genversion
-)
+#add_custom_command(
+#  OUTPUT ${VERSION_FILE}
+#  DEPENDS genversion
+#)
 
 #configure_file (
-#  "${CMAKE_CURRENT_SOURCE_DIR}/TMC3Config.h.in"
+#  "../tmc3/TMC3Config.h.in"
 #  "${PROJECT_BINARY_DIR}/tmc3/TMC3Config.h"
 #)
 
@@ -53,10 +67,10 @@ add_custom_command(
 # not expected to change without modifying this CMakeLists.txt.
 #
 
-file(GLOB PROJECT_IN_FILES
-  "TMC3Config.h.in"
-  "version.cpp.in"
-)
+#file(GLOB PROJECT_IN_FILES
+#  "../tmc3/TMC3Config.h.in"
+#  "../tmc3/version.cpp.in"
+#)
 
 file(GLOB PROJECT_INC_FILES
   "../tmc3/Attribute.h"
@@ -165,13 +179,13 @@ include_directories(
   "${CMAKE_CURRENT_SOURCE_DIR}/../dependencies/program-options-lite"
 )
 
-add_library (libgpcc STATIC
+add_library (gpcc STATIC
   ${PROJECT_CPP_FILES}
   ${PROJECT_INC_FILES}
   ${PROJECT_IN_FILES}
-  ${VERSION_FILE}
+  #${VERSION_FILE}
 )
-add_dependencies(libgpcc genversion)
+#add_dependencies(libgpcc genversion)
 
 #add_executable (ply-merge EXCLUDE_FROM_ALL
 #  "../tools/ply-merge.cpp"
