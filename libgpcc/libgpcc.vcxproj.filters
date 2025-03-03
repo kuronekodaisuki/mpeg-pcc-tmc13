@@ -35,7 +35,7 @@
     <ClCompile Include="..\tmc3\RAHT.cpp" />
     <ClCompile Include="..\tmc3\tables.cpp" />
     <ClCompile Include="..\tmc3\TMC3.cpp" />
-    <ClCompile Include="libtmc3.cpp" />
+    <ClCompile Include="libgpcc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\tmc3\Attribute.h" />
@@ -86,8 +86,14 @@
     <ClInclude Include="..\tmc3\TMC3.h" />
     <ClInclude Include="..\tmc3\version.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="libgpcc.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\tmc3\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{47da64ff-73d9-4e57-bd6a-02d2dce010df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
