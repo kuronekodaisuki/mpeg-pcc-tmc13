@@ -160,6 +160,7 @@ include_directories(
   "${PROJECT_SOURCE_DIR}"
   "${CMAKE_CURRENT_SOURCE_DIR}"
   "${CMAKE_CURRENT_SOURCE_DIR}/../dependencies/nanoflann"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../dependencies/schroedinger/"
   "${CMAKE_CURRENT_SOURCE_DIR}/../dependencies/program-options-lite"
 )
 
