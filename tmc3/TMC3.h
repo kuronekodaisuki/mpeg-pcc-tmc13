@@ -38,7 +38,9 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
+#ifndef _WIN32
 #include "TMC3Config.h"
+#endif
 #include "pcc_chrono.h"
 
 struct Parameters;

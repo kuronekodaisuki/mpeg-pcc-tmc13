@@ -36,9 +36,11 @@
 #if _WIN32
 #  define _UNICODE
 #  include <windows.h>
+#else
+#include "TMC3Config.h"
 #endif
 
-#include "TMC3Config.h"
+
 #include "pcc_chrono.h"
 
 #if HAVE_GETRUSAGE
