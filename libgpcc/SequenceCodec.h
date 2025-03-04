@@ -99,3 +99,5 @@ public:
 protected:
   Parameters* params;
 };
+
+bool ParseParameters(int argc, char* argv[], Parameters& params);
