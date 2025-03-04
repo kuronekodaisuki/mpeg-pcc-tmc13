@@ -103,6 +103,7 @@
     </ClCompile>
     <ClCompile Include="SequenceCodec.cpp" />
     <ClCompile Include="SequenceEncoder.cpp" />
+    <ClCompile Include="Particle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libgpcc.h" />
@@ -249,6 +250,7 @@
     </ClInclude>
     <ClInclude Include="SequenceCodec.h" />
     <ClInclude Include="SequenceEncoder.h" />
+    <ClInclude Include="Particle.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\tmc3\CMakeLists.txt" />

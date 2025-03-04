@@ -15,7 +15,76 @@ SequenceEncoder::SequenceEncoder(Parameters* params) : SequenceCodec(params)
   _angularOrigin = params->encoder.gps.gpsAngularOrigin;
 }
 
+
 //----------------------------------------------------------------------------
+int
+SequenceEncoder::compress(std::vector<Particle> particles)
+{
+  PCCPointSet3 pointCloud;
+
+  for (const Particle particle : particles)
+  {
+    //pointCloud.Append(particle);
+    
+  }
+
+  // Some evaluations wish to scan the points in azimuth order to simulate
+  // real-time acquisition (since the input has lost its original order).
+  // NB: because this is trying to emulate the input order, binning is disabled
+  if (params->sortInputByAzimuth)
+    sortByAzimuth(
+      pointCloud, 0, pointCloud.getPointCount(), 0., _angularOrigin,
+      params->encoder.gps.geom_angular_azimuth_scale_log2_minus11 + 12,
+      params->encoder.gps.geom_angular_azimuth_speed_minus1 + 1,
+      params->encoder.gps.angularTheta, params->encoder.gps.angularZ);
+
+  // Sanitise the input point cloud
+  // todo(df): remove the following with generic handling of properties
+  bool codeColour = params->encoder.attributeIdxMap.count("color");
+  if (!codeColour)
+    pointCloud.removeColors();
+  assert(codeColour == pointCloud.hasColors());
+
+  bool codeReflectance = params->encoder.attributeIdxMap.count("reflectance");
+  if (!codeReflectance)
+    pointCloud.removeReflectances();
+  assert(codeReflectance == pointCloud.hasReflectances());
+
+  //clock->start();
+
+  if (params->convertColourspace)
+    convertFromGbr(params->encoder.sps.attributeSets, pointCloud);
+
+  scaleAttributesForInput(params->encoder.sps.attributeSets, pointCloud);
+
+  // The reconstructed point cloud
+  CloudFrame recon;
+  auto* reconPtr = params->reconstructedDataPath.empty()
+      && !params->encoder.sps.inter_frame_prediction_enabled_flag
+    ? nullptr
+    : &recon;
+
+  auto bytestreamLenFrameStart = bytestreamFile.tellp();
+
+  int ret = (params->encoder.gps.biPredictionEnabledFlag == 2)
+    ? encoder.compressHGOF(pointCloud, &params->encoder, this, reconPtr)
+    : encoder.compress(pointCloud, &params->encoder, this, reconPtr);
+  if (ret) {
+    std::cout << "Error: can't compress point cloud!" << std::endl;
+    return -1;
+  }
+
+  auto bytestreamLenFrameEnd = bytestreamFile.tellp();
+  int frameLen = bytestreamLenFrameEnd - bytestreamLenFrameStart;
+  std::cout << "Total frame size " << frameLen << " B" << std::endl;
+
+  //clock->stop();
+
+  if (!params->reconstructedDataPath.empty())
+    writeOutputFrame(params->reconstructedDataPath, {}, recon, recon.cloud);
+
+  return 0;
+}
 
 int
 SequenceEncoder::compress(Stopwatch* clock)

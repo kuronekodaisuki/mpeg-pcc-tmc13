@@ -52,7 +52,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\tmc3;..\dependencies\nanoflann;..\dependencies\program-options-lite;..\dependencies\schroedinger;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);..\tmc3;..\dependencies\nanoflann;..\dependencies\program-options-lite;..\dependencies\schroedinger;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -70,7 +70,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>..\tmc3;..\dependencies\nanoflann;..\dependencies\program-options-lite;..\dependencies\schroedinger;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);..\tmc3;..\dependencies\nanoflann;..\dependencies\program-options-lite;..\dependencies\schroedinger;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -129,6 +129,7 @@
     <ClInclude Include="..\tmc3\version.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="libgpcc.h" />
+    <ClInclude Include="Particle.h" />
     <ClInclude Include="SequenceCodec.h" />
     <ClInclude Include="SequenceEncoder.h" />
   </ItemGroup>
@@ -167,6 +168,7 @@
     <ClCompile Include="..\tmc3\RAHT.cpp" />
     <ClCompile Include="..\tmc3\tables.cpp" />
     <ClCompile Include="libgpcc.cpp" />
+    <ClCompile Include="Particle.cpp" />
     <ClCompile Include="SequenceCodec.cpp" />
     <ClCompile Include="SequenceEncoder.cpp" />
   </ItemGroup>
