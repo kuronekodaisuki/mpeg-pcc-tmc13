@@ -18,15 +18,18 @@ SequenceEncoder::SequenceEncoder(Parameters* params) : SequenceCodec(params)
 
 //----------------------------------------------------------------------------
 int
-SequenceEncoder::compress(std::vector<Particle> particles)
+SequenceEncoder::compress(std::vector<Particle>& particles)
 {
   PCCPointSet3 pointCloud;
+  std::vector<PointType> positions;
 
-  for (const Particle particle : particles)
+  for (int i = 0; i < particles.size(); i++)
   {
-    //pointCloud.Append(particle);
-    
+    pcc::PointType* point = reinterpret_cast<pcc::PointType*>(particles[i].position());
+    positions.push_back(*point);
   }
+  pointCloud.Append(positions);
+
 
   // Some evaluations wish to scan the points in azimuth order to simulate
   // real-time acquisition (since the input has lost its original order).

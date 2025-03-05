@@ -17,7 +17,7 @@ public:
 
 	int compress(Stopwatch* clock);
 
-	int compress(std::vector<Particle> particles);
+	int compress(std::vector<Particle>& particles);
 
 protected:
 	int compressOneFrame(Stopwatch* clock);
