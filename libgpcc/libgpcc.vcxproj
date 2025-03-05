@@ -161,6 +161,7 @@
     <ClCompile Include="..\tmc3\OctreeNeighMap.cpp" />
     <ClCompile Include="..\tmc3\osspecific.cpp" />
     <ClCompile Include="..\tmc3\partitioning.cpp" />
+    <ClCompile Include="..\tmc3\PCCPointSet.cpp" />
     <ClCompile Include="..\tmc3\pcc_chrono.cpp" />
     <ClCompile Include="..\tmc3\ply.cpp" />
     <ClCompile Include="..\tmc3\pointset_processing.cpp" />

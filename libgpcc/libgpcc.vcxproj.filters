@@ -104,6 +104,7 @@
     <ClCompile Include="SequenceCodec.cpp" />
     <ClCompile Include="SequenceEncoder.cpp" />
     <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="..\tmc3\PCCPointSet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libgpcc.h" />
