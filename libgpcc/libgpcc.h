@@ -4,5 +4,10 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 
-// TODO: プログラムに必要な追加ヘッダーをここで参照します。
+#include "Particle.h"
+
+int compress(std::vector<Particle> particles);
+
+

@@ -1,12 +1,15 @@
 ﻿// libgpcc.cpp : アプリケーションのエントリ ポイントを定義します。
 //
-
+#include "SequenceEncoder.h"
 #include "libgpcc.h"
 
 using namespace std;
+using namespace pcc;
 
-int main()
+int
+compress(std::vector<Particle> particles)
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+  Parameters parameter;	
+  SequenceEncoder encoder(&parameter);
+  return encoder.compress(particles);
 }
