@@ -1,5 +1,5 @@
 #pragma once
-#include <array>
+#include <cstdint>
 
 class Particle 
 {
@@ -11,6 +11,6 @@ public:
   uint16_t* color();
 
 private:
-  std::array<int32_t, 3> _position;
-  std::array<uint16_t, 3> _color;
+  int32_t _position[3];
+  uint16_t _color[3];
 };

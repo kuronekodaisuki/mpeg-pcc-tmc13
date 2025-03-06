@@ -12,10 +12,10 @@ Particle::Particle(int32_t x, int32_t y, int32_t z, uint16_t r, uint16_t g, uint
 
 int32_t* Particle::position()
 {
-	return reinterpret_cast<int32_t*>(_position[0]);
+	return &_position[0];
 }
 
 uint16_t* Particle::color()
 {
-  return reinterpret_cast<uint16_t*>(_color[0]);
+  return &_color[0];
 }
