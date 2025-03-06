@@ -581,7 +581,7 @@ GeometryOctreeEncoder::determinePlanarMode(
   const int planeSelector = 1 << planeId;
   static const uint8_t KAdjNeighIdxMask[3][2] = {0x0f, 0xf0, 0x33,
                                                  0xcc, 0x55, 0xaa};
-  OctreePlanarBuffer::Elmt* row;
+  OctreePlanarBuffer::Elmt* row = nullptr;
   int rowLen = OctreePlanarBuffer::rowSize;
   int closestPlanarFlag;
   int closestDist;
