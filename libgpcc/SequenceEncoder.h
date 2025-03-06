@@ -4,12 +4,13 @@
 #include "ply.h"
 #include "SequenceCodec.h"
 
+
 using namespace pcc;
 
 typedef pcc::chrono::Stopwatch<pcc::chrono::utime_inc_children_clock>
   Stopwatch;
 
-class SequenceEncoder: public SequenceCodec, pcc::PCCTMC3Encoder3::Callbacks 
+class API SequenceEncoder: public SequenceCodec, pcc::PCCTMC3Encoder3::Callbacks 
 {
 public:
 	// NB: params must outlive the lifetime of the decoder.
