@@ -50,7 +50,7 @@
 #include "hls.h"
 #include "partitioning.h"
 #include "pointset_processing.h"
-#include "TMC3.h"
+//#include "TMC3.h"
 namespace pcc {
 
 //============================================================================

@@ -41,7 +41,7 @@
 #include "PayloadBuffer.h"
 #include "PCCPointSet.h"
 #include "PCCTMC3Common.h"
-#include "entropy.h"
+//#include "entropy.h"
 
 namespace pcc {
 

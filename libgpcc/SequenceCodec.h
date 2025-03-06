@@ -1,7 +1,8 @@
 #pragma once
-#include "frame.h"
+//#include "frame.h"
 #include "PCCTMC3Encoder.h"
 #include "PCCTMC3Decoder.h"
+
 
 enum class OutputSystem
 {
@@ -18,8 +19,8 @@ void convertFromGbr(
   const std::vector<pcc::AttributeDescription>& attrDescs, pcc::PCCPointSet3& cloud);
   //----------------------------------------------------------------------------
 
-struct Parameters 
-{
+
+struct Parameters {
     bool isDecoder;
 
     // command line parsing should adjust dist2 values according to PQS
