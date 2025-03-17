@@ -9,8 +9,21 @@
 #include "SequenceCodec.h"
 #include "Particle.h"
 
-//int compress(std::vector<Particle> particles);
 
+/// <summary>
+/// Compress particles from Swift
+/// </summary>
+/// <param name="particles"></param>
+/// <param name="count"></param>
+/// <returns></returns>
 extern "C" int compress(Particle* particles, int count);
+
+/// <summary>
+/// Read PLY file
+/// </summary>
+/// <param name="fileName"></param>
+/// <param name="cloud"></param>
+/// <returns></returns>
+bool readPly(const std::string& fileName, PCCPointSet3& cloud);
 
 

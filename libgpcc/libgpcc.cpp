@@ -16,6 +16,14 @@ compress(Particle* particles, int count)
   return encoder.compress(particle_vector);
 }
 
+bool
+readPly(const std::string& fileName, PCCPointSet3& cloud)
+{
+  pcc::ply::PropertyNameMap map;
+  map.position = axisOrderToPropertyNames(AxisOrder::kXYZ);
+  return ply::read(fileName, map, 1, cloud);
+}
+
 /*
 int
 compress(std::vector<Particle> particles)
