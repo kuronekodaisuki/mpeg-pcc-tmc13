@@ -24,6 +24,6 @@ extern "C" int compress(Particle* particles, int count);
 /// <param name="fileName"></param>
 /// <param name="cloud"></param>
 /// <returns></returns>
-bool readPly(const std::string& fileName, PCCPointSet3& cloud);
+bool readPly(const std::string& fileName, pcc::PCCPointSet3& cloud);
 
 

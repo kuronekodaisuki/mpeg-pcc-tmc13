@@ -15,8 +15,12 @@
 class API Particle 
 {
 public:
+  Particle() {};
   Particle(
     int32_t x, int32_t y, int32_t z, uint16_t r, uint16_t g, uint16_t b);
+
+  void SetPosition(int32_t x, int32_t y, int32_t z);
+  void SetColor(uint16_t r, uint16_t g, uint16_t b);
 
   int32_t* position();
   uint16_t* color();
