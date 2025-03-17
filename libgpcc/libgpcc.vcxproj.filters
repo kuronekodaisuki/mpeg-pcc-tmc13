@@ -105,30 +105,6 @@
     <ClCompile Include="SequenceEncoder.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="..\tmc3\PCCPointSet.cpp" />
-    <ClCompile Include="gpcclib\gpcclib_common.cpp">
-      <Filter>gpcclib</Filter>
-    </ClCompile>
-    <ClCompile Include="gpcclib\gpcclib_decoder_params.cpp">
-      <Filter>gpcclib</Filter>
-    </ClCompile>
-    <ClCompile Include="gpcclib\gpcclib_encoder_encoder.cpp">
-      <Filter>gpcclib</Filter>
-    </ClCompile>
-    <ClCompile Include="gpcclib\gpcclib_encoder_params.cpp">
-      <Filter>gpcclib</Filter>
-    </ClCompile>
-    <ClCompile Include="gpcclib\gpcclib_frame.cpp">
-      <Filter>gpcclib</Filter>
-    </ClCompile>
-    <ClCompile Include="gpcclib\gpcclib_params.cpp">
-      <Filter>gpcclib</Filter>
-    </ClCompile>
-    <ClCompile Include="gpcclib\gpcclib_payloadbuffer.cpp">
-      <Filter>gpcclib</Filter>
-    </ClCompile>
-    <ClCompile Include="gpcclib\gpcclib_pointset.cpp">
-      <Filter>gpcclib</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libgpcc.h" />

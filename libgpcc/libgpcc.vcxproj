@@ -174,14 +174,6 @@
     <ClCompile Include="..\tmc3\quantization.cpp" />
     <ClCompile Include="..\tmc3\RAHT.cpp" />
     <ClCompile Include="..\tmc3\tables.cpp" />
-    <ClCompile Include="gpcclib\gpcclib_common.cpp" />
-    <ClCompile Include="gpcclib\gpcclib_decoder_params.cpp" />
-    <ClCompile Include="gpcclib\gpcclib_encoder_encoder.cpp" />
-    <ClCompile Include="gpcclib\gpcclib_encoder_params.cpp" />
-    <ClCompile Include="gpcclib\gpcclib_frame.cpp" />
-    <ClCompile Include="gpcclib\gpcclib_params.cpp" />
-    <ClCompile Include="gpcclib\gpcclib_payloadbuffer.cpp" />
-    <ClCompile Include="gpcclib\gpcclib_pointset.cpp" />
     <ClCompile Include="libgpcc.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="SequenceCodec.cpp" />

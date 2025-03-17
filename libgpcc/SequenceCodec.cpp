@@ -3,6 +3,8 @@
 /// 
 
 #include <iostream>
+#include "PCCTMC3Decoder.h"
+#include "PCCTMC3Encoder.h"
 #include "SequenceCodec.h"
 #include "pointset_processing.h"
 #include "program_options_lite.h"

@@ -6,8 +6,11 @@
 #include <iostream>
 #include <vector>
 
+#include "SequenceCodec.h"
 #include "Particle.h"
 
-int compress(std::vector<Particle> particles);
+//int compress(std::vector<Particle> particles);
+
+extern "C" int compress(Particle* particles, int count);
 
 
